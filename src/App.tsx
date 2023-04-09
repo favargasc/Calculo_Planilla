@@ -1,12 +1,17 @@
-import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      <h1>Hola mundo</h1>
+    <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/tGa4zh4J6u4?autoplay=1"
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
     </div>
   )
 }
