@@ -16,7 +16,6 @@ function createWindow() {
   // Carga la página de React desde el servidor de desarrollo en el puerto 3000
   window.maximize();
   window.loadURL("http://localhost:5173");
-
   window.on("closed", function () {
     window = null;
   });
