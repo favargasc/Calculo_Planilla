@@ -1,0 +1,27 @@
+export const Colors = {
+    business: '#00B5AE',
+    businessClicked: '#007C78',
+    people: '#6A2C90',
+    gray1: '#BDBDBD',
+    home: '#F68B1F',
+    kolbi: '#ABDC4E',
+    background1: '#FFFFFF',
+    background2: '#FAFAFA',
+    background3: '#F2F2F2',
+    white1: '#F1F1F1',
+    textAlt1: '#FFFFFF',
+    textAlt2: '#F2F2F2',
+    text1: '#4B4B4B',
+    text2: '#646B70',
+    text3: '#BDBDBD',
+    highlight: '#F68B1F',
+    rojoKolbi: '#EF4632',
+    default: 'current',
+    black1: '#000000',
+    reason1: '#646B70',
+    reason2: '#00B5AE',
+    reason3: '#F68B1F',
+    reason4: '#acdc4c',
+    reason5: '#93d4d7'
+  }
+  

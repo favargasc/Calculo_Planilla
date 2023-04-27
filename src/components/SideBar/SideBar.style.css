@@ -1,0 +1,24 @@
+.side-menu {
+  background: #FAFAFA;
+  width: 235px;
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 10px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.45);
+  position: fixed;
+  z-index: 5;
+}
+
+.side-menu .main-menu {
+  position: relative;
+  /*verflow-y: scroll;*/
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.side-menu .main-menu .menu-item {
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 22px;
+  box-sizing: border-box;
+}
