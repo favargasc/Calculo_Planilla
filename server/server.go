@@ -15,6 +15,10 @@ func main() {
 
 	app.Get("/employees", employees.GetAllEmployees)
 
+	app.Get("/employee_deductions", deductions.GetAllEmployeeDeductions)
+
+	app.Get("/employer_deductions", deductions.GetAllEmployerDeductions)
+
 	app.Get("/employee_deductions/:salary", deductions.CalculateEmployeeDeduction)
 
 	app.Get("/employer_deductions/:salary", deductions.CalculateEmployerDeduction)

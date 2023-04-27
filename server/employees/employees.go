@@ -14,8 +14,8 @@ type Employee struct {
 	LastName  string  `db:"lastName"`
 	Phone     string  `db:"phone"`
 	Email     string  `db:"email"`
-	Sex       string  `db:"sex"`
-	JobTitle  string  `db:"job"` // puesto de trabajo
+	Sex       string  `db:"gerder"`
+	JobTitle  string  `db:"job_title"` // puesto de trabajo
 	Salary    float32 `db:"salary"`
 	Status    string  `db:"status"` // activo, inactivo, incapacitado
 	DOB       string  `db:"dob"`    // date of birth
