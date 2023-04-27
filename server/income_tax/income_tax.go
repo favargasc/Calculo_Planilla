@@ -11,7 +11,7 @@ import (
 func CalculateIncomeTax(c *fiber.Ctx) error {
 	salary := c.Params("salary")
 
-	db, err := sql.Open("mysql", "root:UxCZMbuwmazK5eNnyLo9@tcp(containers-us-west-152.railway.app:7612)/railway")
+	db, err := sql.Open("mysql", "root:2664@tcp(35.235.115.113:3306)/dev")
 	if err != nil {
 		panic(err.Error())
 	}
