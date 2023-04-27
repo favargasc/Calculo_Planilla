@@ -1,0 +1,28 @@
+:root {
+  --business: #00B5AE;
+  --businessClicked: #007C78;
+  --people: #6A2C90;
+  --home: #F68B1F;
+  --kolbi: #ABDC4E;
+  --background1: #FFFFFF;
+  --background2: #FAFAFA;
+  --background3: #F2F2F2;
+  --textAlt1: #FFFFFF;
+  --textAlt2: #F2F2F2;
+  --text1: #4B4B4B;
+  --text2: #646B70;
+  --text3: #BDBDBD;
+  --gray1: #BDBDBD;
+  --gray2: #F1F1F1;
+  --gray3: #757575;
+  --gray4: #828282;
+  --black1: #000000;
+  --highlight: #F68B1F;
+  --rojoKolbi: #EF4632;
+  --borderBodyTable: #E0E0E0;
+  --shadowHoverTable: #CCC;
+  --alertError: #a92a2a;
+  --alertWarning: #ca7624;
+  --alertSuccess: #2aa96f;
+  --checkbox: #DADADA;
+}
