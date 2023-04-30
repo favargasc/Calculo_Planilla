@@ -4,6 +4,7 @@ import getEmployeesData from '../../../api/implementations/getEmployeesData/getE
 import RadioButton from '../../RadioButton/RadioButton.jsx'
 import getDepartaments from '../../../api/implementations/getDepartaments/getDepartaments.js'
 import getOrganizations from '../../../api/implementations/getOrganizations/getOrganizations.js'
+import { Constants } from '../../../constans/Constants.jsx'
 
 import './TableEmployee.style.css'
 
@@ -63,7 +64,7 @@ const TableEmployee = ({}) => {
         : 
           <div>
             <label className='lbl-header'>Información de los Empleados</label>
-            <TableBase data={data} />
+            <TableBase data={data} headings={Constants.headersEmployeeTable} />
           </div> 
       }
     </div>

@@ -1,17 +1,18 @@
-import React, { useState } from 'react' 
+import React from 'react' 
 
 import './RadioButton.style.css'
 
 const RadioButton = ({ name, options, selectedOption, setSelectedOption }) => {
 
   function handleOptionChange(id) {
-    console.log('event.target.Id: ', id)
     setSelectedOption(id) 
   }
 
   return (
     <div className='radio-btn'>
-      <label className='lbl-radio-btn' >{name}</label>  
+      <div className='container-lbl'>
+        <label className='lbl-radio-btn' >{name}</label>  
+      </div>
       <div className='container-options'>
         {options.map((option, index) => (
           <div key={index} className='radio-option'>

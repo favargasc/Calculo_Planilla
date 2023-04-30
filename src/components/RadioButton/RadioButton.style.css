@@ -5,6 +5,10 @@
     padding: 20px;
 }
 
+.container-lbl {
+    margin-bottom: 30px;
+}
+
 .radio-option {
     width: 200px;
     margin: 2px;
@@ -29,6 +33,7 @@
     font-size: initial;
     color: darkgreen;
     margin-bottom: 15px;
+    font-weight: bold;
 }
 
 input[type="radio"] {
