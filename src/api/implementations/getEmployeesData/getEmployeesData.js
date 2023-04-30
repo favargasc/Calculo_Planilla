@@ -26,7 +26,19 @@ const transformData = (data) => {
     employee.DeduccionObrera = getCurrencyCRC(employee.DeduccionObrera) 
     employee.Renta = getCurrencyCRC(employee.Renta) 
 
-    array.push(employee)
+    array.push({
+      "Cedula": employee.Cedula,
+      "Nombre": employee.Nombre,
+      "Apellido1": employee.Apellido1,
+      "Apellido2": employee.Apellido2,
+      "Salario": employee.Salario,
+      "FechaNacimiento": employee.FechaNacimiento,
+      "Organizacion": employee.Organizacion,
+      "Departamento": employee.Departamento,
+      "DeduccionPatronal": employee.DeduccionPatronal,
+      "DeduccionObrera": employee.DeduccionObrera,
+      "Renta": employee.Renta
+    })
 
   })
   return array
