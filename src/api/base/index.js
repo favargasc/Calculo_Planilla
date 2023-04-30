@@ -16,7 +16,7 @@ class Register {
 class Request {
   constructor (
     url,
-    baseURL = 'https://localhost:3000/',
+    baseURL = 'https://localhost:4000/',
     header = { 'Content-Type': 'application/json' }
   ) {
     this.url = url
