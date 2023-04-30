@@ -31,3 +31,25 @@ func CalculateIncomeTax(c *fiber.Ctx) error {
 			"income_tax": incomeTax,
 		})
 }
+
+func CalculateTotalIncomeTax(c *fiber.Ctx) error {
+	db, err := sql.Open("mysql", "root:2664@tcp(35.235.115.113:3306)/dev")
+	if err != nil {
+		panic(err.Error())
+	}
+
+	defer db.Close()
+
+	var incomeTax float64
+
+	err = db.QueryRow("SELECT calculate_total_income_tax();").Scan(&incomeTax)
+
+	if err != nil {
+		panic(err.Error())
+	}
+
+	return c.Status(fiber.StatusOK).JSON(
+		fiber.Map{
+			"income_tax": incomeTax,
+		})
+}

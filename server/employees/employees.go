@@ -9,19 +9,18 @@ import (
 )
 
 type Employee struct {
-	ID        string  `db:"id"` // documento de identificacion
-	FirstName string  `db:"firstName"`
-	LastName  string  `db:"lastName"`
-	Phone     string  `db:"phone"`
-	Email     string  `db:"email"`
-	Sex       string  `db:"gerder"`
-	JobTitle  string  `db:"job_title"` // puesto de trabajo
-	Salary    float32 `db:"salary"`
-	Status    string  `db:"status"` // activo, inactivo, incapacitado
-	DOB       string  `db:"dob"`    // date of birth
-	SSN       string  `db:"ssn"`    // numero de seguridad social
-	ESD       string  `db:"esd"`    // employment start date
-	IBAN      string  `db:"iban"`   // international Bank Account Number
+	Cedula            string `db:"cedula"` // documento de identificacion
+	Nombre            string `db:"nombre"`
+	Apellido1         string `db:"apellido1"`
+	Apellido2         string `db:"apellido2"`
+	Salario           string `db:"salario"`
+	FechaNacimiento   string `db:"fecha_nacimiento"`
+	Organizacion      string `db:"organizacion"`       // puesto de trabajo
+	Departamento      string `db:"departamento"`       // puesto de trabajo
+	DeduccionPatronal string `db:"deduccion_patronal"` // puesto de trabajo
+	DeduccionObrera   string `db:"deduccion_obrera"`   // puesto de trabajo
+	Renta             string `db:"renta"`              // puesto de trabajo
+
 }
 
 func GetAllEmployees(c *fiber.Ctx) error {
@@ -33,7 +32,7 @@ func GetAllEmployees(c *fiber.Ctx) error {
 
 	defer db.Close()
 
-	rows, err := db.Query("SELECT * FROM get_employees;")
+	rows, err := db.Query("SELECT * FROM total;")
 
 	if err != nil {
 		panic(err.Error())
@@ -45,19 +44,17 @@ func GetAllEmployees(c *fiber.Ctx) error {
 		var employee Employee
 
 		err = rows.Scan(
-			&employee.ID,
-			&employee.FirstName,
-			&employee.LastName,
-			&employee.Phone,
-			&employee.Email,
-			&employee.Sex,
-			&employee.JobTitle,
-			&employee.Salary,
-			&employee.Status,
-			&employee.DOB,
-			&employee.SSN,
-			&employee.ESD,
-			&employee.IBAN,
+			&employee.Cedula,
+			&employee.Nombre,
+			&employee.Apellido1,
+			&employee.Apellido2,
+			&employee.Salario,
+			&employee.FechaNacimiento,
+			&employee.Organizacion,
+			&employee.Departamento,
+			&employee.DeduccionPatronal,
+			&employee.DeduccionObrera,
+			&employee.Renta,
 		)
 
 		if err != nil {

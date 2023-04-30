@@ -154,3 +154,47 @@ func GetAllEmployerDeductions(c *fiber.Ctx) error {
 
 	return c.Status(fiber.StatusOK).JSON(deductions)
 }
+
+func CalculateTotalEmployeeDeductions(c *fiber.Ctx) error {
+	db, err := sql.Open("mysql", "root:2664@tcp(35.235.115.113:3306)/dev")
+	if err != nil {
+		panic(err.Error())
+	}
+
+	defer db.Close()
+
+	var deduction float64
+
+	err = db.QueryRow("SELECT calculate_total_deductions(?);", 2).Scan(&deduction)
+
+	if err != nil {
+		panic(err.Error())
+	}
+
+	return c.Status(fiber.StatusOK).JSON(
+		fiber.Map{
+			"deduction": deduction,
+		})
+}
+
+func CalculateTotalEmployerDeductions(c *fiber.Ctx) error {
+	db, err := sql.Open("mysql", "root:2664@tcp(35.235.115.113:3306)/dev")
+	if err != nil {
+		panic(err.Error())
+	}
+
+	defer db.Close()
+
+	var deduction float64
+
+	err = db.QueryRow("SELECT calculate_total_deductions(?);", 1).Scan(&deduction)
+
+	if err != nil {
+		panic(err.Error())
+	}
+
+	return c.Status(fiber.StatusOK).JSON(
+		fiber.Map{
+			"deduction": deduction,
+		})
+}

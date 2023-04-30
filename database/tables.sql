@@ -49,51 +49,16 @@ CREATE TABLE deduction (
         FOREIGN KEY (status_id)
         REFERENCES deduction_status(id)
 );
--- cargo dentro de la empresa
-
--- estado de los empleados => { activo, inactivo, incapacitado, etc.}
-CREATE TABLE employee_status (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name  VARCHAR(20)
-);
--- sexo del empleado
-CREATE TABLE sex (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name  VARCHAR(20)
-);
-
-CREATE TABLE job_title (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name  VARCHAR(35),
-    salary_range DOUBLE
-);
--- tabla de empleados
+-- empleados
 CREATE TABLE employee (
-    sex_id INT NOT NULL,
-    jod_title_id INT NOT NULL,
-    status_id int NOT NULL,
-
-    id NVARCHAR(20) PRIMARY KEY,
-    firstname VARCHAR(20),
-    lastname VARCHAR(20),
-    phone VARCHAR(20),
-    email VARCHAR(35),
-    dbo DATE,
-    esd DATE,
-    ssn VARCHAR(20),
-    iban VARCHAR(30),
-
-    CONSTRAINT fk_sex_id_employee
-        FOREIGN KEY (sex_id)
-        REFERENCES sex(id),
-
-    CONSTRAINT fk_job_title_id_employee
-        FOREIGN KEY (jod_title_id)
-        REFERENCES job_title(id),
-
-    CONSTRAINT fk_status_id_employee
-        FOREIGN KEY (status_id)
-        REFERENCES employee_status(id)
+    cedula NVARCHAR(10) PRIMARY KEY,
+    nombre VARCHAR(20),
+    apellido1 VARCHAR(20),
+    apellido2 VARCHAR(20),
+    salario REAL,
+    fecha_nacimiento DATE,
+    Organizacion INT,
+    Departamento INT
 );
 -- tabla de tarifas de rebajos
 create table income_tax(

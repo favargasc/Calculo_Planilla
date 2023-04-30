@@ -22,15 +22,21 @@ func main() {
 
 	app.Get("/employees", employees.GetAllEmployees)
 
-	app.Get("/employee_deductions", deductions.GetAllEmployeeDeductions)
+	app.Get("/employee_deductions_list", deductions.GetAllEmployeeDeductions)
 
-	app.Get("/employer_deductions", deductions.GetAllEmployerDeductions)
+	app.Get("/employer_deductions_list", deductions.GetAllEmployerDeductions)
+
+	app.Get("/total_employee_deductions", deductions.CalculateTotalEmployeeDeductions)
+
+	app.Get("/total_employer_deductions", deductions.CalculateTotalEmployerDeductions)
 
 	app.Get("/employee_deductions/:salary", deductions.CalculateEmployeeDeduction)
 
 	app.Get("/employer_deductions/:salary", deductions.CalculateEmployerDeduction)
 
 	app.Get("/income_tax/:salary", income_tax.CalculateIncomeTax)
+
+	app.Get("/total_income_tax", income_tax.CalculateTotalIncomeTax)
 
 	app.Listen(":3000")
 }
