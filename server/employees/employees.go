@@ -15,8 +15,10 @@ type Employee struct {
 	Apellido2         string  `db:"apellido2"`
 	Salario           float64 `db:"salario"`
 	FechaNacimiento   string  `db:"fecha_nacimiento"`
+	OrganizacionId    int     `db:"organizacion_id"`    // puesto de trabajo
 	Organizacion      string  `db:"organizacion"`       // puesto de trabajo
 	Departamento      string  `db:"departamento"`       // puesto de trabajo
+	DepartamentoId    int     `db:"departamento_id"`    // puesto de trabajo
 	DeduccionPatronal float64 `db:"deduccion_patronal"` // puesto de trabajo
 	DeduccionObrera   float64 `db:"deduccion_obrera"`   // puesto de trabajo
 	Renta             float64 `db:"renta"`              // puesto de trabajo
@@ -34,7 +36,26 @@ func GetAllEmployees(c *fiber.Ctx) error {
 
 	defer db.Close()
 
-	rows, err := db.Query("SELECT * FROM total WHERE Organizacion = ? AND Departamento = ?", organization, department)
+	rows, err := db.Query(`
+	SELECT
+		t.cedula,
+		t.nombre,
+		t.apellido1,
+		t.apellido2,
+		t.salario,
+		t.fecha_nacimiento,
+		o.id AS organizacion_id,
+		o.name AS organizacion,
+		d.id AS departamento_id,
+		d.name AS departamento,
+		t.employer_deduction,
+		t.employee_deduction,
+		t.income_tax
+	FROM total t
+	INNER JOIN organization o ON o.id = t.Organizacion
+	INNER JOIN department d ON d.id = t.Departamento
+	WHERE t.Organizacion = ? AND t.Departamento = ?`,
+		organization, department)
 
 	if err != nil {
 		panic(err.Error())
@@ -52,7 +73,9 @@ func GetAllEmployees(c *fiber.Ctx) error {
 			&employee.Apellido2,
 			&employee.Salario,
 			&employee.FechaNacimiento,
+			&employee.OrganizacionId,
 			&employee.Organizacion,
+			&employee.DepartamentoId,
 			&employee.Departamento,
 			&employee.DeduccionPatronal,
 			&employee.DeduccionObrera,
