@@ -1,0 +1,21 @@
+.radio-btn {
+    border: 2px solid gainsboro;
+    margin-bottom: 2vh;
+}
+
+.option-radio-btn {
+    padding-left: 5px;
+    padding-right: 20px;
+}
+
+.container-options { 
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap
+}
+
+.lbl-radio-btn{
+    text-transform: uppercase;
+    font-size: initial;
+    color: darkgreen;
+}
