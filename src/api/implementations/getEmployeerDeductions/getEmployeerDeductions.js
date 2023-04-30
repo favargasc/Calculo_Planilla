@@ -4,7 +4,7 @@ const transformData = (data) => {
   const array = []
   data.map((deduction) => {
     array.push(
-      deduction.Concept + ': ' + deduction.Percentage
+      deduction.Concept + ': ' + deduction.Percentage + '%'
     )
   })
   return array
