@@ -38,11 +38,14 @@ func CalculateTotalIncomeTax(c *fiber.Ctx) error {
 		panic(err.Error())
 	}
 
+	organization := c.Params("organization")
+	department := c.Params("department")
+
 	defer db.Close()
 
 	var incomeTax float64
 
-	err = db.QueryRow("SELECT calculate_total_income_tax();").Scan(&incomeTax)
+	err = db.QueryRow("SELECT calculate_total_income_tax(?, ?);", organization, department).Scan(&incomeTax)
 
 	if err != nil {
 		panic(err.Error())

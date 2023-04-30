@@ -1,10 +1,8 @@
 package main
 
 import (
-	"p1/employees"
-
 	"p1/deductions"
-
+	"p1/employees"
 	"p1/income_tax"
 
 	"github.com/gofiber/fiber/v2"
@@ -20,15 +18,15 @@ func main() {
 		AllowMethods: "GET, POST, PUT, DELETE",
 	}))
 
-	app.Get("/employees", employees.GetAllEmployees)
+	app.Get("/employees/:organization/:department", employees.GetAllEmployees)
 
 	app.Get("/employee_deductions_list", deductions.GetAllEmployeeDeductions)
 
 	app.Get("/employer_deductions_list", deductions.GetAllEmployerDeductions)
 
-	app.Get("/total_employee_deductions", deductions.CalculateTotalEmployeeDeductions)
+	app.Get("/total_employee_deductions/:organization/:department", deductions.CalculateTotalEmployeeDeductions)
 
-	app.Get("/total_employer_deductions", deductions.CalculateTotalEmployerDeductions)
+	app.Get("/total_employer_deductions/:organization/:department", deductions.CalculateTotalEmployerDeductions)
 
 	app.Get("/employee_deductions/:salary", deductions.CalculateEmployeeDeduction)
 
@@ -36,7 +34,7 @@ func main() {
 
 	app.Get("/income_tax/:salary", income_tax.CalculateIncomeTax)
 
-	app.Get("/total_income_tax", income_tax.CalculateTotalIncomeTax)
+	app.Get("/total_income_tax/:organization/:department", income_tax.CalculateTotalIncomeTax)
 
-	app.Listen(":3000")
+	app.Listen(":8000")
 }

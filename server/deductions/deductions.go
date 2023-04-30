@@ -161,11 +161,14 @@ func CalculateTotalEmployeeDeductions(c *fiber.Ctx) error {
 		panic(err.Error())
 	}
 
+	organization := c.Params("organization")
+	department := c.Params("department")
+
 	defer db.Close()
 
 	var deduction float64
 
-	err = db.QueryRow("SELECT calculate_total_deductions(?);", 2).Scan(&deduction)
+	err = db.QueryRow("SELECT calculate_total_deductions(?, ?, ?);", 2, organization, department).Scan(&deduction)
 
 	if err != nil {
 		panic(err.Error())
@@ -183,11 +186,14 @@ func CalculateTotalEmployerDeductions(c *fiber.Ctx) error {
 		panic(err.Error())
 	}
 
+	organization := c.Params("organization")
+	department := c.Params("department")
+
 	defer db.Close()
 
 	var deduction float64
 
-	err = db.QueryRow("SELECT calculate_total_deductions(?);", 1).Scan(&deduction)
+	err = db.QueryRow("SELECT calculate_total_deductions(?, ?, ?);", 1, organization, department).Scan(&deduction)
 
 	if err != nil {
 		panic(err.Error())

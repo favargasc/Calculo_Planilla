@@ -20,11 +20,13 @@ type Employee struct {
 	DeduccionPatronal string `db:"deduccion_patronal"` // puesto de trabajo
 	DeduccionObrera   string `db:"deduccion_obrera"`   // puesto de trabajo
 	Renta             string `db:"renta"`              // puesto de trabajo
-
 }
 
 func GetAllEmployees(c *fiber.Ctx) error {
 	db, err := sql.Open("mysql", "root:2664@tcp(35.235.115.113:3306)/dev")
+
+	organization := c.Params("organization")
+	department := c.Params("department")
 
 	if err != nil {
 		panic(err.Error())
@@ -32,7 +34,7 @@ func GetAllEmployees(c *fiber.Ctx) error {
 
 	defer db.Close()
 
-	rows, err := db.Query("SELECT * FROM total;")
+	rows, err := db.Query("SELECT * FROM total WHERE Organizacion = ? AND Departamento = ?", organization, department)
 
 	if err != nil {
 		panic(err.Error())
