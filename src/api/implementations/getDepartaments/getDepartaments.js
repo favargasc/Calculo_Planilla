@@ -12,7 +12,6 @@ const getDepartaments = async ({ setDepartaments }) => {
   await GetDepartmentsApi.get()
     .then(
       response => {
-        console.log(response)
         setDepartaments(transformData(response))
       }
     )

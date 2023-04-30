@@ -1,7 +1,8 @@
 .radio-btn {
     border: 2px solid gainsboro;
-    margin-bottom: 2vh;
-    width: 164%;
+    margin-bottom: 10px;
+    width: 158%;
+    padding: 20px;
 }
 
 .radio-option {
@@ -9,6 +10,7 @@
     margin: 2px;
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .option-radio-btn {
@@ -26,4 +28,8 @@
     text-transform: uppercase;
     font-size: initial;
     color: darkgreen;
+}
+
+input[type="radio"] {
+    color: red;
 }

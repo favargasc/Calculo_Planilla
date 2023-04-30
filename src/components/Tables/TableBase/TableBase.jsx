@@ -1,38 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 import './TableBase.style.css'
 
 const TableBase = ({ data }) => {
 
-    const headings = Object.keys(data[1])
-    const [selectedRows, setSelectedRows] = useState([])
-    const [selectAll, setSelectAll] = useState([])
-
-    const handleSelectAll = (event) => {
-      if (event.target.checked) {
-        setSelectedRows(Array.from({ length: data.length }, (_, index) => index)) 
-        setSelectAll(true) 
-      } else {
-        setSelectedRows([]) 
-        setSelectAll(false) 
-      }
-    } 
-
-    const handleSelectOne = (event, index) => {
-      if (event.target.checked) {
-        setSelectedRows([...selectedRows, index]);
-      } else {
-        setSelectedRows(selectedRows.filter((i) => i !== index));
-      }
-    };
+    const headings = []
+    Object.keys(data[1]).map((head) => {
+      headings.push(head.replace(/([a-z0-9])([A-Z])/g, "$1 $2").replace(/\d+/g, " $&"))
+    })
     
     return (
       <table className='table table-bordered'>
       <thead>
         <tr>
-        <th>
-          <input type="checkbox" onChange={handleSelectAll} checked={selectAll} />
-        </th>
           {
             headings.map(heading => <th>{heading}</th>)
           }
@@ -41,13 +21,6 @@ const TableBase = ({ data }) => {
       <tbody>
       {data.map((item, index) => (
         <tr key={index}>
-          <td>
-            <input
-              type="checkbox"
-              checked={selectedRows.includes(index)}
-              onChange={(event) => handleSelectOne(event, index)}
-            />
-          </td>
           {Object.values(item).map((value, index) => (
             <td key={index}>{value}</td>
           ))}

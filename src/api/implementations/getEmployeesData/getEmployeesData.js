@@ -1,9 +1,33 @@
 import GetEmployeesDataApi from '../../routes/GetEmployeesData.api'
 
+const getCurrencyCRC = (currency) => {
+  return currency.toLocaleString('es-CR', {
+    style: 'currency',
+    currency: 'CRC',
+  })
+}
+
+const capitalizeText = (text) => {
+  let words = text.toLowerCase().split(' ')
+  for (let i = 0; i < words.length; i++) {
+    words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1)
+  }
+  return words.join(' ')
+}
+
 const transformData = (data) => {
   const array = []
   data.map((employee) => {
+    employee.Nombre = capitalizeText(employee.Nombre.replace(/\\/g, 'ñ'))
+    employee.Apellido1 = capitalizeText(employee.Apellido1.replace(/\\/g, 'ñ'))
+    employee.Apellido2 = capitalizeText(employee.Apellido2.replace(/\\/g, 'ñ'))
+    employee.Salario = getCurrencyCRC(employee.Salario) 
+    employee.DeduccionPatronal = getCurrencyCRC(employee.DeduccionPatronal) 
+    employee.DeduccionObrera = getCurrencyCRC(employee.DeduccionObrera) 
+    employee.Renta = getCurrencyCRC(employee.Renta) 
+
     array.push(employee)
+
   })
   return array
 }
