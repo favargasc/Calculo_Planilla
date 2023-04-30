@@ -2,8 +2,10 @@ package main
 
 import (
 	"p1/deductions"
+	department "p1/departments"
 	"p1/employees"
 	"p1/income_tax"
+	organization "p1/organizations"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
@@ -35,6 +37,10 @@ func main() {
 	app.Get("/income_tax/:salary", income_tax.CalculateIncomeTax)
 
 	app.Get("/total_income_tax/:organization/:department", income_tax.CalculateTotalIncomeTax)
+
+	app.Get("/departments", department.GetDepartments)
+
+	app.Get("/organizations", organization.GetOrganizations)
 
 	app.Listen(":3000")
 }
