@@ -9,17 +9,17 @@ import (
 )
 
 type Employee struct {
-	Cedula            string `db:"cedula"` // documento de identificacion
-	Nombre            string `db:"nombre"`
-	Apellido1         string `db:"apellido1"`
-	Apellido2         string `db:"apellido2"`
-	Salario           string `db:"salario"`
-	FechaNacimiento   string `db:"fecha_nacimiento"`
-	Organizacion      string `db:"organizacion"`       // puesto de trabajo
-	Departamento      string `db:"departamento"`       // puesto de trabajo
-	DeduccionPatronal string `db:"deduccion_patronal"` // puesto de trabajo
-	DeduccionObrera   string `db:"deduccion_obrera"`   // puesto de trabajo
-	Renta             string `db:"renta"`              // puesto de trabajo
+	Cedula            string  `db:"cedula"` // documento de identificacion
+	Nombre            string  `db:"nombre"`
+	Apellido1         string  `db:"apellido1"`
+	Apellido2         string  `db:"apellido2"`
+	Salario           float64 `db:"salario"`
+	FechaNacimiento   string  `db:"fecha_nacimiento"`
+	Organizacion      string  `db:"organizacion"`       // puesto de trabajo
+	Departamento      string  `db:"departamento"`       // puesto de trabajo
+	DeduccionPatronal float64 `db:"deduccion_patronal"` // puesto de trabajo
+	DeduccionObrera   float64 `db:"deduccion_obrera"`   // puesto de trabajo
+	Renta             float64 `db:"renta"`              // puesto de trabajo
 }
 
 func GetAllEmployees(c *fiber.Ctx) error {
