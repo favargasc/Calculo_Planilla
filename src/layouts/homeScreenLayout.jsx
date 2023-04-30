@@ -1,18 +1,20 @@
 import React from 'react'
 
+import './homeScreenLayout.style.css'
+
 const HomeScreenLayout = ({ children }) => {
   return (
-    <div
-      style={{
-        background: 'rgba(0, 0, 0, 0.11)',
-        height: '100%',
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'row'
-      }}
-    >
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-      <div style={{ marginLeft: '72px', marginTop: '50px', height: '100%' }}>{children}</div>
+    <div className='home-screen-layout-container'>
+     <div className='home-screen-layout-side-bar'>
+        {children[0]}
+      </div>
+      <div className='home-screen-layout-container-content'>
+        <div>
+          {children[1]}
+        </div>
+        <div className='home-screen-layout-content'>
+          {children[2]}
+        </div>
       </div>
     </div>
   )
