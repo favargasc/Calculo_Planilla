@@ -2,14 +2,18 @@ import React, { useState, useEffect } from 'react'
 import TableBase from '../TableBase/TableBase.jsx'
 import getEmployeesData from '../../../api/implementations/getEmployeesData/getEmployeesData.js'
 import RadioButton from '../../RadioButton/RadioButton.jsx'
+import getDepartaments from '../../../api/implementations/getDepartaments/getDepartaments.js'
+import getOrganizations from '../../../api/implementations/getOrganizations/getOrganizations.js'
 
 import './TableEmployee.style.css'
 
 const TableEmployee = ({}) => {
 
   const [data, setData] = useState([])
-
-  const [selectedOption, setSelectedOption] = useState(null) 
+  const [departaments, setDepartaments] = useState([])
+  const [selectedDto, setSelectedDto] = useState(1) 
+  const [organizations, setOrganizations] = useState([])
+  const [selectedOrg, setSelectedOrg] = useState(1) 
   
   const options = [
     { value: 'option1', label: 'Opción 1' },
@@ -33,17 +37,39 @@ const TableEmployee = ({}) => {
   ]
 
   useEffect(() => {
+    getDepartaments({
+      setDepartaments
+    })
+    getOrganizations({
+      setOrganizations
+    })
     getEmployeesData({
-      numDto: 10,
-      numOrg: 20,
+      numDto: selectedDto,
+      numOrg: selectedOrg,
       setData
     })
   }, [])
+
+  useEffect(() => {
+    getEmployeesData({
+      numDto: selectedDto,
+      numOrg: selectedOrg,
+      setData
+    })
+  }, [selectedDto])
+
+  useEffect(() => {
+    getEmployeesData({
+      numDto: selectedDto,
+      numOrg: selectedOrg,
+      setData
+    })
+  }, [selectedOrg])
   
   return (
     <div>
-      <RadioButton name={'Lista de Departamentos'} options={options} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
-      <RadioButton name={'Lista de Organizaciones'} options={options} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
+      <RadioButton name={'Lista de Departamentos'} options={departaments} selectedOption={selectedDto} setSelectedOption={setSelectedDto} />
+      <RadioButton name={'Lista de Organizaciones'} options={organizations} selectedOption={selectedOrg} setSelectedOption={setSelectedOrg} />
       { data.length == 0 ? null : <TableBase data={data} /> }
     </div>
   )

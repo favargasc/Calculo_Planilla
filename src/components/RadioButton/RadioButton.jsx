@@ -4,8 +4,9 @@ import './RadioButton.style.css'
 
 const RadioButton = ({ name, options, selectedOption, setSelectedOption }) => {
 
-  function handleOptionChange(event) {
-    setSelectedOption(event.target.value) 
+  function handleOptionChange(id) {
+    console.log('event.target.Id: ', id)
+    setSelectedOption(id) 
   }
 
   return (
@@ -13,16 +14,16 @@ const RadioButton = ({ name, options, selectedOption, setSelectedOption }) => {
       <label className='lbl-radio-btn' >{name}</label>  
       <div className='container-options'>
         {options.map((option, index) => (
-          <div key={index}>
+          <div key={index} className='radio-option'>
             <input
               type="radio"
-              id={option.value}
+              id={option.Id}
               name={name}
-              value={option.value}
-              checked={selectedOption === option.value}
-              onChange={handleOptionChange}
+              Id={option.Id}
+              checked={selectedOption === option.Id}
+              onChange={() => handleOptionChange(option.Id)}
             />
-            <label className='option-radio-btn' htmlFor={option.value}>{option.label}</label>
+            <label className='option-radio-btn' htmlFor={option.Id}>{option.Id + '. ' + option.Name}</label>
           </div>
         ))}      
       </div>  

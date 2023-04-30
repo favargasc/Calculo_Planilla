@@ -1,6 +1,14 @@
 .radio-btn {
     border: 2px solid gainsboro;
     margin-bottom: 2vh;
+    width: 164%;
+}
+
+.radio-option {
+    width: 200px;
+    margin: 2px;
+    display: flex;
+    align-items: center;
 }
 
 .option-radio-btn {
