@@ -23,7 +23,7 @@ const RadioButton = ({ name, options, selectedOption, setSelectedOption }) => {
               checked={selectedOption === option.Id}
               onChange={() => handleOptionChange(option.Id)}
             />
-            <label className='option-radio-btn' htmlFor={option.Id}>{option.Id + '. ' + option.Name}</label>
+            <label className='option-radio-btn' htmlFor={option.Id}>{option.Name}</label>
           </div>
         ))}      
       </div>  

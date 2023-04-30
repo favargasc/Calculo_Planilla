@@ -6,7 +6,7 @@ const TableBase = ({ data }) => {
 
     const headings = []
     Object.keys(data[1]).map((head) => {
-      headings.push(head.replace(/([a-z0-9])([A-Z])/g, "$1 $2").replace(/\d+/g, " $&"))
+      headings.push(head.replace(/([a-z0-9])([A-Z])/g, "$1 $2").replace(/\d+/g, " $&")) // Agregar espacios
     })
     
     return (

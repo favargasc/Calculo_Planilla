@@ -1,8 +1,11 @@
 .home-container {
-  width: 100vw;
+  width: 90vw;
   height: 100vh;
   padding: 5vh;
   margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  margin-left: -50px;
 }
 
 .container-table {

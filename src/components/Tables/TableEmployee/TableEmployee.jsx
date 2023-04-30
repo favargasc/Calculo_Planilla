@@ -61,7 +61,10 @@ const TableEmployee = ({}) => {
         data.length == 0 ? 
           null 
         : 
-          <TableBase data={data} /> 
+          <div>
+            <label className='lbl-header'>Información de los Empleados</label>
+            <TableBase data={data} />
+          </div> 
       }
     </div>
   )

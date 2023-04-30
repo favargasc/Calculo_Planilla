@@ -1,18 +1,27 @@
 import GetEmployeeDeductionApi from '../../routes/GetEmployeeDeductions.api'
 
-const getEmployeeDeduction = async () => {
-  console.log('getting data employee deduction')
-  /*await GetEmployeeDeductionApi.get()
+const transformData = (data) => {
+  const array = []
+  data.map((deduction) => {
+    array.push(
+      deduction.Concept + ': ' + deduction.Percentage
+    )
+  })
+  return array
+}
+
+const getEmployeeDeduction = async ({ setData }) => {
+  await GetEmployeeDeductionApi.get()
     .then(
       response => {
-        console.log(response)
+        setData(transformData(response))
       }
     )
     .catch(
       error => {
         console.error(error)
       }
-    )*/
+    )
 }
 
 export default getEmployeeDeduction

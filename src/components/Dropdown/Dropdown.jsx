@@ -19,7 +19,7 @@ const Dropdown = ({ options, title }) => {
         <label className='dropdown-title'>{title}</label>
         {options.map((option, index) => (
           <label className='dropdown-item' key={index}>
-            <input type='checkbox' className={`${"testing" + index}`} checked={selectedOptions.includes(option)} onChange={() => handleOptionSelect(option)} />
+            <input type='checkbox' checked={true} onChange={() => handleOptionSelect(option)} />
             <span className={`option-text color-${index}`}>{option}</span>
           </label>
         ))}

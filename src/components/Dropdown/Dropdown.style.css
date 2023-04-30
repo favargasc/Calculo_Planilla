@@ -41,12 +41,9 @@ input[type="checkbox"] {
     height: 16px;
     border-radius: 3px;
     border: 1px solid #ccc;
-    background-color: #fff;
+    background-color: #a14d4d;
     outline: none;
     cursor: pointer;
     margin-right: 5px;
     align-self: center;
 }
-
-
-
