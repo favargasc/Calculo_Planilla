@@ -8,12 +8,12 @@ import './App.css'
 
 function App() {
 
-  const [screen, setScreen] = useState('HOME')
+  const [screen, setScreen] = useState('Home')
   
   const navigate = (screen) => {
     switch (screen) {
       case 'Home':
-        return <div>HOME</div>
+        return <Home/>
       case 'Taxes':
         return <div>TAXES</div>
       case 'Employees':
@@ -24,12 +24,13 @@ function App() {
   }
 
   return (
-      <HomeScreenLayout>
-        <Header>
-          <label> Cálculo de Impuestos 2023</label>
-        </Header>
-        <Home/>
-      </HomeScreenLayout>  
+    <div>
+      <Header>
+        <label> Cálculo de Impuestos 2023</label>
+      </Header>
+      <Home/>
+    </div>
+      
 
   )
 }
