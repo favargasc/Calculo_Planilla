@@ -1,4 +1,5 @@
 const { app, BrowserWindow, Menu } = require("electron");
+const { exec } = require("child_process");
 
 let window;
 
@@ -23,6 +24,26 @@ function createWindow() {
 
 app.whenReady().then(() => {
   createWindow();
+});
+
+app.whenReady().then(() => {
+  exec("npm run server", (err, stdout, stderr) => {
+    if (err) {
+      console.error(`Error: ${err}`);
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+    console.error(`stderr: ${stderr}`);
+  });
+
+  exec("npm run dev", (err, stdout, stderr) => {
+    if (err) {
+      console.error(`Error: ${err}`);
+      return;
+    }
+    console.log(`stdout: ${stdout}`);
+    console.error(`stderr: ${stderr}`);
+  });
 });
 
 module.exports = {
