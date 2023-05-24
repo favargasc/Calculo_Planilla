@@ -95,3 +95,20 @@ func GetAllEmployees(c *fiber.Ctx) error {
 
 	return c.Status(fiber.StatusOK).JSON(employees)
 }
+
+func UpdateTotal(c *fiber.Ctx) error {
+	db, err := sql.Open("mysql", "root:2664@tcp(35.235.115.113:3306)/dev")
+	if err != nil {
+		return err
+	}
+
+	defer db.Close()
+
+	_, err = db.Exec("CALL updateTotal()");
+
+	if err != nil {
+		return err
+	}
+
+	return c.Status(fiber.StatusOK).SendString("OK")
+}

@@ -42,5 +42,7 @@ func main() {
 
 	app.Get("/organizations", organization.GetOrganizations)
 
+	app.Put("/update", employees.UpdateTotal)
+
 	app.Listen(":4000")
 }

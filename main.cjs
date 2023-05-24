@@ -26,17 +26,17 @@ app.whenReady().then(() => {
   createWindow();
 });
 
+exec("npm run dev", (err, stdout, stderr) => {
+  if (err) {
+    console.error(`Error: ${err}`);
+    return;
+  }
+  console.log(`stdout: ${stdout}`);
+  console.error(`stderr: ${stderr}`);
+});
+
 app.whenReady().then(() => {
   exec("npm run server", (err, stdout, stderr) => {
-    if (err) {
-      console.error(`Error: ${err}`);
-      return;
-    }
-    console.log(`stdout: ${stdout}`);
-    console.error(`stderr: ${stderr}`);
-  });
-
-  exec("npm run dev", (err, stdout, stderr) => {
     if (err) {
       console.error(`Error: ${err}`);
       return;
