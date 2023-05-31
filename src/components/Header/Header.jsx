@@ -24,9 +24,9 @@ const Header = ({ children }) => {
   const handleUpdate = () => {
     setLoading(true)
     updateData({
-      setLoading
+      setLoading,
+      getDate
     })
-    getDate()
   }
 
   const getDate = () => {
@@ -47,7 +47,6 @@ const Header = ({ children }) => {
       'setData': setOptionsEmployeerDeductions
     })
     getDate()
-    //handleUpdate()
   }, [])  
 
   return (
@@ -69,7 +68,10 @@ const Header = ({ children }) => {
         </button>
         {
           loading  ?
-            <Spinner/>
+            <div className='wait-container'>
+              <Spinner/>
+              <h5 style={{ color: '#8d9b8d'}}>Por Favor espere a que finalice la actualización.</h5>
+            </div>
           :
             <div className='date'>
               <h5 style={{ color: '#8d9b8d'}}>Última actualización:</h5>
