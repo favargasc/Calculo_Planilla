@@ -34,6 +34,14 @@ class Request {
     })
   }
 
+  async put () {
+    return this.request({
+      url: this.url,
+      headers: this.header,
+      method: 'put',
+    })
+  }
+
   async post (value) {
     return this.request({
       url: this.url,

@@ -23,11 +23,6 @@ const TableEmployee = ({}) => {
     getOrganizations({
       setOrganizations
     })
-    getEmployeesData({
-      numDto: selectedDto,
-      numOrg: selectedOrg,
-      setData
-    })
   }, [])
 
   useEffect(() => {
@@ -36,15 +31,7 @@ const TableEmployee = ({}) => {
       numOrg: selectedOrg,
       setData
     })
-  }, [selectedDto])
-
-  useEffect(() => {
-    getEmployeesData({
-      numDto: selectedDto,
-      numOrg: selectedOrg,
-      setData
-    })
-  }, [selectedOrg])
+  }, [selectedOrg, selectedDto])
   
   return (
     <div>

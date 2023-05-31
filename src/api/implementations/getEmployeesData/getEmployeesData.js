@@ -49,7 +49,11 @@ const getEmployeesData = async ({ numDto, numOrg, setData }) => {
   await GetEmployeesDataApi.get(params)
     .then(
       response => {
-        setData(transformData(response))
+        if(response.length == 0){
+          console.log('undefined', response)
+        } else {
+          setData(transformData(response))
+        }
       }
     )
     .catch(

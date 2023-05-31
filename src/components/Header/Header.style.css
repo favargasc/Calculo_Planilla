@@ -31,6 +31,10 @@
   background: #999999;
 }
 
+.btn-settings:disabled {
+  background: #999999;
+}
+
 @media (max-width: 768px) {
   .header {
     flex-direction: column;
@@ -50,3 +54,14 @@ hr {
   margin: 20px 0;
 }
 
+.date {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1vw;
+}
+
+.nav {
+  display: flex;
+}
