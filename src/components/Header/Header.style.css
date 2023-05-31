@@ -65,3 +65,7 @@ hr {
 .nav {
   display: flex;
 }
+
+.wait-container {
+  padding: 2px;
+}
