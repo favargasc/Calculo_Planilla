@@ -1,10 +1,11 @@
 import UpdateDataApi from "../../routes/UpdateData.api"
 
-const updateData = async({ setLoading }) => {
+const updateData = async({ setLoading, getDate }) => {
   await UpdateDataApi.put()
     .then(
       response => {
         setLoading(false)
+        getDate()
         console.log('end update')
       }
     )
