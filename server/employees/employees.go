@@ -110,5 +110,5 @@ func UpdateTotal(c *fiber.Ctx) error {
 		return err
 	}
 
-	return c.Status(fiber.StatusOK).SendString("OK")
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{"status": "OK"})
 }
